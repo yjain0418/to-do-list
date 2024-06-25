@@ -15,4 +15,15 @@ router.post('/add/task', (req, res) => {
     })
 })
 
+.get('/delete/task/:_id', (req, res) => {
+    const {_id} = req.params;
+
+    todo.deleteOne({_id}).then(() => {
+        console.log("Deleted");
+        res.redirect("/");
+    }).catch((err) => {
+        console.log(err);
+    })
+});
+
 module.exports = router;

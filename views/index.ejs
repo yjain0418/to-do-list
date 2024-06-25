@@ -16,6 +16,7 @@
         <% task.forEach(todos => { %>
             <div class="d-flex">
             <li class="list-group-item my-2 w-100"><%= todos.todo %></li>
+            <a href="/delete/task/<%= todos._id %>" class="btn btn-danger btn-sm text-center my-2 mx-2">Delete</a>
         </div>
         <% }) %>
       </ul>
