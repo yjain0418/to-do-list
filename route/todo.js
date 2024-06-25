@@ -24,6 +24,18 @@ router.post('/add/task', (req, res) => {
     }).catch((err) => {
         console.log(err);
     })
+})
+
+.get('/update/task/:_id', (req, res) => {
+    const {_id} = req.params;
+    const value = req.query.value;
+
+    todo.updateOne({ _id}, {$set : {todo : value}}).then(() => {
+        console.log("Updated");
+        res.redirect("/");
+    }).catch((err) => {
+        console.log(err);
+    })
 });
 
 module.exports = router;

@@ -16,6 +16,7 @@
         <% task.forEach(todos => { %>
             <div class="d-flex">
             <li class="list-group-item my-2 w-100"><%= todos.todo %></li>
+            <a href="#" class="btn btn-success btn-sm text-center my-2 mx-2" onclick="change('<%= todos._id%>')">Update</a>
             <a href="/delete/task/<%= todos._id %>" class="btn btn-danger btn-sm text-center my-2 mx-2">Delete</a>
         </div>
         <% }) %>
@@ -23,3 +24,14 @@
 </div>
 
 <%- include("./partials/footer.ejs") %>
+
+<script>
+  function change(taskId) {
+    const prompt_val = prompt("Enter new value");
+
+    if (prompt_val) {
+      // Redirect to the update URL with the new value
+      window.location.href = `/update/task/${taskId}?value=${encodeURIComponent(prompt_val)}`;
+    }
+  }
+</script>
