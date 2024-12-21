@@ -1,8 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const path = require('path');
 const route1 = require('./route/index')
 const route2 = require('./route/todo')
-const connString = require('./model/db')
 
 const app = express()
 require('dotenv').config()
